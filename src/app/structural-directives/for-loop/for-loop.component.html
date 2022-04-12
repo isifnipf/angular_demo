@@ -1,0 +1,14 @@
+<ul>
+    <li *ngFor="let arrayNmb of arrayNmbs; let isFirst=first; let isLast=last">
+        {{arrayNmb}}
+        <span *ngIf="isFirst">Is First</span>
+        <span *ngIf="isLast">Is Last</span>
+    </li>
+</ul>
+
+<div>Service Data!!!</div>
+<ul>
+    <li *ngFor="let single of data">
+        {{single}}
+    </li>
+</ul>

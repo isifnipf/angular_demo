@@ -1,0 +1,16 @@
+<ng-container *ngFor="let per of arrPeople">
+    <div [ngSwitch]="per.country">
+        <div *ngSwitchCase="'GR'">
+            <span style="color:blue">{{per.name}}</span> {{per.age}} {{per.country}}
+        </div>
+        <div *ngSwitchCase="'USA'">
+            <span style="color:red">{{per.name}}</span> {{per.age}} {{per.country}}
+        </div>
+        <div *ngSwitchCase="'UK'">
+            <span style="color:green">{{per.name}}</span> {{per.age}} {{per.country}}
+        </div>
+        <div *ngSwitchDefault>
+            <span style="color:black">{{per.name}}</span> {{per.age}} {{per.country}}
+        </div>
+    </div>
+</ng-container>

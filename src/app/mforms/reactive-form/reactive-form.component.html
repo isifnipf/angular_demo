@@ -1,0 +1,57 @@
+<form [formGroup]="reactiveForm" (submit)="onSubmit()">
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="firstName">First Name</label>
+          <input class="form-control" id="firstName" placeholder="Enter first name" formControlName="firstName">
+          <div *ngIf="reactiveForm.get('firstName')?.invalid && reactiveForm.get('firstName')?.dirty">  
+            <div style="color:red" *ngIf="reactiveForm.get('firstName')?.errors?.['required']">    Field is required  </div>
+            <div style="color:red" *ngIf="reactiveForm.get('firstName')?.errors?.['minlength']">    The minimum length is 3 </div>
+          </div>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="lastName">Last Name</label>
+          <input class="form-control" id="lastName" placeholder="Enter last name" formControlName="lastName">
+          <div *ngIf="reactiveForm.get('lastName')?.invalid && reactiveForm.get('lastName')?.dirty">  
+            <div style="color:red" *ngIf="reactiveForm.get('lastName')?.errors?.['required']">    Field is required  </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="form-group col-md-12 form-check">
+          <input class="form-check-input" type="checkbox" formControlName="xpCheck">
+          <label class="form-check-label">I have experience > 2 yrs </label>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="form-group col-md-12">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="ts" id="typescript" formControlName="typeLang">
+            <label class="form-check-label" for="typescript">TypeScript</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="ng" id="angular" formControlName="typeLang">
+            <label class="form-check-label" for="angular">Angular</label>
+          </div>
+          <div *ngIf="reactiveForm.get('typeLang')?.invalid && reactiveForm.get('typeLang')?.dirty">  
+            <div style="color:red" *ngIf="reactiveForm.get('typeLang')?.errors?.['required']">    Field is required  </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="form-group col-md-12">
+          <label class="form-control-label">Favourite Language</label>
+          <select class="form-control" formControlName="langSelect">
+            <option [ngValue]="null">Select</option>
+            <option *ngFor="let lang of programmingLanguages" [ngValue]="lang">
+              {{lang}}
+            </option>
+          </select>
+          <div *ngIf="reactiveForm.get('langSelect')?.invalid && reactiveForm.get('langSelect')?.dirty">  
+            <div style="color:red" *ngIf="reactiveForm.get('langSelect')?.errors?.['required']">    Field is required  </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </div>
+  </form>
