@@ -10,6 +10,8 @@ import { LifecycleModule } from './lifecycle/lifecycle.module';
 import { WrapperModule } from './wrapper/wrapper.module';
 import { DirectivesModule } from './directives/directives.module';
 import { MFormsModule } from './mforms/mforms.module';
+import { AppRoutingModule } from './app-routing.module';
+import { MenuModule } from './menu/menu.module';
 
 
 @NgModule({
@@ -26,8 +28,9 @@ import { MFormsModule } from './mforms/mforms.module';
     ServicesModule,
     CountriesModule,
     HttpClientModule,
-    MFormsModule
-    
+    MFormsModule,
+    AppRoutingModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
